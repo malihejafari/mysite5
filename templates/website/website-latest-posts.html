@@ -1,0 +1,34 @@
+{% load static %}
+<div class="row">
+    {% for post in posts %}
+        <div class="col-lg-4">
+            <div class="active-recent-blog-carusel"> 
+                <div class="single-recent-blog-post item">
+                    <div class="thumb">
+                        <img  src="{{post.image.url}}" style="max-width:250px; height: auto;" alt="">
+                    </div>
+                    <div class="details">
+                        <div class="tags">
+                            <ul>
+                                {% for cat in post.category.all %}
+                                <li>
+                                    <a href="{% url 'blog:category' cat_name=cat.name %}">{{cat.name}}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <a href="{% url 'blog:single' pid=post.id %}">
+                            <h4 class="title">{{post.title}}</h4>
+                        </a>
+                        <p>
+                            {{post.content|truncatewords:2}}
+                        </p>
+                        <h6 class="date">{{ post.published_date|date:"d M Y"}}</h6>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,22 @@
+{% load static %}
+<div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+    <div class="detials">
+        <p>Next Post</p>
+        {% if p_id %}
+        <a href="{% url 'blog:single' pid=p_id %}">
+            <h4>{{ p_title }}</h4>
+        </a>
+        {% endif %}
+    </div>
+    <div class="arrow">
+        {% if p_id %}
+        <a href="{% url 'blog:single' pid=p_id %}"><span class="lnr text-white lnr-arrow-right"></span></a>
+        {% endif %}
+    </div>
+    <div class="thumb">
+        {% if p_id %}
+        <a href="{% url 'blog:single' pid=p_id %}"><img style="max-width: 100px;" src="{{p_image}}" alt=""></a>
+        {% endif %}
+    </div>
+
+</div>
