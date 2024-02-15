@@ -19,6 +19,13 @@ def latestposts():
     posts = Post.objects.filter(status=1,published_date__lte=now).order_by('published_date')[:2]
     return {'posts':posts}
 
+@register.inclusion_tag('website/website-latest-posts.html')
+def weblatestposts():
+    now = timezone.now()
+    posts = Post.objects.filter(status=1,published_date__lte=now).order_by('-published_date')[:3]
+    return {'posts':posts}
+
+
 @register.inclusion_tag('blog/blog-next-post.html')
 def next_post(p_id):
     now = timezone.now()

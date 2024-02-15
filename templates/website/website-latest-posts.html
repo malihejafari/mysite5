@@ -2,10 +2,12 @@
 <div class="row">
     {% for post in posts %}
         <div class="col-lg-4">
-            <div class="active-recent-blog-carusel"> 
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img  src="{{post.image.url}}" style="max-width:250px; height: auto;" alt="">
+        <div class="single-destination relative">
+            <!--<div class="active-recent-blog-carusel"> -->
+                <!--<div class="single-recent-blog-post item">-->
+                    <div class="thumb relative">
+                        <div class="overlay overlay-bg"></div>
+                        <img  src="{{post.image.url}}" class="img-fluid" alt="">
                     </div>
                     <div class="details">
                         <div class="tags">
@@ -25,10 +27,10 @@
                         </p>
                         <h6 class="date">{{ post.published_date|date:"d M Y"}}</h6>
                     </div>
-                </div>
+                <!--</div>-->
                 
 
-            </div>
+        </div>
         </div>
     {% endfor %}
 </div>
